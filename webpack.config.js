@@ -1,17 +1,16 @@
-const webpack = require("webpack");
-
-var path = require ('path');
+const path = require('path');
 
 module.exports = {
-    entry: './widgets.jsx',
+    context: __dirname,
+    entry: './frontend/widgets.jsx',
     output: {
-        path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+        path: path.resolve(__dirname),
         filename: 'bundle.js'
     },
     module: {
         rules: [
             {
-                test: [/\.jsx?&/],
+                test: /\.jsx?$/,
                 exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader',
@@ -23,8 +22,7 @@ module.exports = {
         ]
     },
     devtool: 'source-map',
-
     resolve: {
-        extensions: ['.js', '.jsx', '*'],
+        extensions: [".js", ".jsx", "*"]
     }
-}
+};
