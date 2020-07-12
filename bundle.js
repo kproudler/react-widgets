@@ -128,15 +128,47 @@ var Clock = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Clock);
 
   function Clock(props) {
+    var _this;
+
     _classCallCheck(this, Clock);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      time: new Date()
+    };
+    _this.tick = _this.tick.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Clock, [{
+    key: "tick",
+    value: function tick() {
+      this.setState({
+        time: new Date()
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.intervalId = setInterval(this.tick, 1000);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.intervalId);
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Clock");
+      var hours = this.state.time.getHours();
+      var minutes = this.state.time.getMinutes();
+      var seconds = this.state.time.getSeconds();
+      hours = hours < 10 ? "0".concat(hours) : hours;
+      minutes = minutes < 10 ? "0".concat(minutes) : minutes;
+      seconds = seconds < 10 ? "0".concat(seconds) : seconds;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Clock"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "clock"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Time:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, hours, ":", minutes, ":", seconds)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Date: ", this.state.time.toDateString())));
     }
   }]);
 
