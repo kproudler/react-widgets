@@ -1,0 +1,16 @@
+.clock {
+    font-size: 26px;
+    font-family: 'Times New Roman', Times, sans-serif;
+    background: orange;
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 20px 20px 20px;   
+}
+
+.clock p{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}

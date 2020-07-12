@@ -40,8 +40,11 @@ export default class Clock extends React.Component {
                 <span>
                     {hours}:{minutes}:{seconds}
                 </span>
+                </p>
+                    <p>
+                        <span>Date:</span>
+                        {this.state.time.toDateString()}
                     </p>
-                    <p>Date: {this.state.time.toDateString()}</p>
                 </div>
             </div>
         )
