@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Clock from './clock';
 import Tabs from './tabs';
+import Weather from './weather';
 
 const panes = [
   {title: 'one', content: 'First pane'},
@@ -14,7 +15,11 @@ function Root() {
   return(
     <div>
       <Clock/>
-      <Tabs panes={panes}/>
+      <Weather />
+      <div className='interactive'>
+        <Tabs panes={panes}/>
+      </div>
+      
     </div>
   )
 }
