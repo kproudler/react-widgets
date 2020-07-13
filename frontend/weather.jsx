@@ -31,12 +31,10 @@ export default class Weather extends React.Component {
         };
         url += toQueryString(params);
         const apiKey = 'f816d7f39052e3a98b21952097a43076';
-        // This is our API key; please use your own!
         url += `&APPID=${apiKey}`;
 
         const xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = () => {
-            //ready state of DONE means this is complete
             if (xmlhttp.status === 200 && xmlhttp.readyState === XMLHttpRequest.DONE) {
                 const data = JSON.parse(xmlhttp.responseText);
                 this.setState({ weather: data });

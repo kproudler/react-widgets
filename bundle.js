@@ -382,13 +382,11 @@ var Weather = /*#__PURE__*/function (_React$Component) {
         lon: location.coords.longitude
       };
       url += toQueryString(params);
-      var apiKey = 'f816d7f39052e3a98b21952097a43076'; // This is our API key; please use your own!
-
+      var apiKey = 'f816d7f39052e3a98b21952097a43076';
       url += "&APPID=".concat(apiKey);
       var xmlhttp = new XMLHttpRequest();
 
       xmlhttp.onreadystatechange = function () {
-        //ready state of DONE means this is complete
         if (xmlhttp.status === 200 && xmlhttp.readyState === XMLHttpRequest.DONE) {
           var data = JSON.parse(xmlhttp.responseText);
 
